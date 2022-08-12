@@ -5,30 +5,36 @@ import rikkei.academy.controller.SongController;
 import rikkei.academy.model.Singer;
 import rikkei.academy.model.Song;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ViewSong {
     static Scanner scanner = new Scanner(System.in);
     private SongController songController = new SongController();
 
+
     public void showListSongView() {
         for (Song song :
                 songController.songList()) {
-            System.out.println(song.getId() + ". " + song.getName());
+            System.out.println(song.getId() + ". " + song.getName() + "." + song.getSingers() );
         }
+
     }
 
     public void createSong() {
-        SingerController singerController = new SingerController();
+
+//        SingerController singerController = new SingerController();
         System.out.println("Enter new Song");
         String name = scanner.nextLine();
-
         System.out.println("Enter id Singer");
-        int idSinger = Integer.parseInt(scanner.nextLine());
-        for (Singer singer :
-                singerController.showListSinger()) {
-            songController.addSong(new Song(songController.songList().size() + 1, name));
-        }
+//        int idSinger = Integer.parseInt(scanner.nextLine());
+//        for (Singer singer :
+//                singerController.showListSinger()) {
+//            singerController.showListSinger().get(idSinger).getName();
+//        }
+        songController.addSong(new Song(songController.songList().size() + 1, name ));
+
 
     }
 
@@ -52,10 +58,15 @@ public class ViewSong {
 
     public boolean isValidate(int id) {
         int size = songController.songList().size();
-        if (id >= 0 && id <= size) {
-            return true;
+        for (int i = 0; i <= size; i++) {
+            if (id == songController.songList().get(i).getId()) {
+                return true;
+            }
+
         }
         return false;
+
+
 
     }
 
@@ -90,7 +101,7 @@ public class ViewSong {
 
     }
 
-    ViewSong() {
+    public ViewSong() {
         System.out.println("Menu");
         System.out.println("1: Show list Song");
         System.out.println("2: Add Song");

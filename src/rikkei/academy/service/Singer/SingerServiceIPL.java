@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class SingerServiceIPL implements ISingerService {
     Scanner scanner = new Scanner(System.in);
-   static List<Singer> listSinger = new ArrayList<>();
+
+   public static List<Singer> listSinger = new ArrayList<>();
     static {
        listSinger.add(new Singer(1,"David",30));
         listSinger.add(new Singer(2,"Justin",26));
@@ -36,7 +37,12 @@ public class SingerServiceIPL implements ISingerService {
 
     @Override
     public Singer findById(int id) {
-        return listSinger.get(id - 1);
+        for (int i = 0; i < listSinger.size(); i++) {
+            if (id == listSinger.get(i).getId()){
+                return listSinger.get(i);
+            }
+        }
+        return null;
     }
 
     @Override

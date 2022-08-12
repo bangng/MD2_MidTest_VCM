@@ -7,7 +7,7 @@ import rikkei.academy.service.Singer.SingerServiceIPL;
 import java.util.List;
 
 public class SingerController {
-private final ISingerService singerService = new SingerServiceIPL();
+public ISingerService singerService = new SingerServiceIPL();
 public List<Singer> showListSinger(){
     return singerService.findAll();
 

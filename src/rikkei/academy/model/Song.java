@@ -1,10 +1,14 @@
 package rikkei.academy.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Song implements Comparable<Song>{
     private int id;
     private String name;
     private int listen;
     private int like;
+    private List<Singer> singers = new ArrayList<>();
 
     public Song() {
 
@@ -14,6 +18,14 @@ public class Song implements Comparable<Song>{
         this.id = id;
         this.name = name;
 
+    }
+
+    public List<Singer> getSingers() {
+        return singers;
+    }
+
+    public void setSingers(List<Singer> singers) {
+        this.singers = singers;
     }
 
     public int getId() {
@@ -52,7 +64,7 @@ public class Song implements Comparable<Song>{
     public String toString() {
         return "Song{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + name + '\'' + singers +
                 ", listen=" + listen +
                 ", like=" + like +
                 '}';

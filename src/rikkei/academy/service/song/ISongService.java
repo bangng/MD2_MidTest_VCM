@@ -1,4 +1,4 @@
-package rikkei.academy.service.Singer;
+package rikkei.academy.service.song;
 
 import rikkei.academy.model.Song;
 import rikkei.academy.service.IGenericService;

@@ -23,6 +23,7 @@ public Main(){
         default:
             System.out.println("目がないのかい‼");
     }
+    new Main();
 
 }
 
