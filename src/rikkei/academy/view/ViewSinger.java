@@ -12,7 +12,7 @@ public class ViewSinger {
     public void showListSingerView() {
         for (Singer singer :
                 singerController.showListSinger()) {
-            System.out.println(singer.getId() + "." + singer.getName() + "." + singer.getAge()) ;
+            System.out.println(singer.getId() + "." + singer.getName() + "." + singer.getAge() + singer.getSongs()) ;
         }
     }
 

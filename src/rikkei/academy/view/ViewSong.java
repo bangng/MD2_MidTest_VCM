@@ -5,9 +5,7 @@ import rikkei.academy.controller.SongController;
 import rikkei.academy.model.Singer;
 import rikkei.academy.model.Song;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ViewSong {
     static Scanner scanner = new Scanner(System.in);
@@ -23,19 +21,39 @@ public class ViewSong {
     }
 
     public void createSong() {
+//        findByIdSong();
 
 //        SingerController singerController = new SingerController();
-        System.out.println("Enter new Song");
-        String name = scanner.nextLine();
-        System.out.println("Enter id Singer");
+////        System.out.println("Enter new id song");
+////        int idSong = Integer.parseInt(scanner.nextLine());
+//        System.out.println("Enter new Song");
+//        String name = scanner.nextLine();
+//        System.out.println("Enter id Singer");
 //        int idSinger = Integer.parseInt(scanner.nextLine());
 //        for (Singer singer :
-//                singerController.showListSinger()) {
-//            singerController.showListSinger().get(idSinger).getName();
+//                singerController.addSinger(idSinger){
+//            if (idSinger == singer.getId()){
+//            singerController.addSinger(singer);
+//            }
+//
 //        }
-        songController.addSong(new Song(songController.songList().size() + 1, name ));
+//        songController.addSong(new Song(songController.songList().size() + 1, name ));
+//      / copy code
 
+        System.out.println("Enter song name");
+        String songName = scanner.nextLine();
+        new ViewSinger().showListSingerView();
+        System.out.println("Enter singer id to add");
+        String idString = scanner.nextLine();
+        String[] idArr = idString.split("\\D+");
+        int[] id = Arrays.stream(idArr).mapToInt(Integer ::parseInt).toArray();
+        System.out.println(Arrays.toString(id));
+        int lastId = songController.songList().stream().max(Comparator.comparing(Song ::getId)).get().getId();
+        Song newSong = new Song(lastId + 1,songName);
+//        updateSong();
+        songController.addSong(newSong);
 
+// dến chỗ này
     }
 
     public void deleteSong() {

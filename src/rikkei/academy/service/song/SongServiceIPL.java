@@ -53,7 +53,12 @@ public class SongServiceIPL implements ISongService {
 
     @Override
     public void save(Song song) {
-        listSong.add(song);
+        if (this.findById(song.getId())== null){
+            listSong.add(song);
+        }else {
+            this.findById(song.getId()).setName(song.getName());
+        }
+
 
 
 
