@@ -85,4 +85,43 @@ public class ViewSinger {
         showListSingerView();
 
     }
+
+    public ViewSinger() {
+
+        System.out.println("Menu");
+        System.out.println("1: Show list Singer");
+        System.out.println("2: Add Singer");
+        System.out.println("3: delete singer");
+        System.out.println("4: edit Singer");
+        System.out.println("5: detail Singer");
+        System.out.println("6: sort Singer");
+        System.out.println("7: Exit");
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice){
+            case 1:
+                this.showListSingerView();
+                break;
+            case 2:
+                this.createSinger();
+                break;
+            case 3:
+                this.deleteSinger();
+                break;
+            case 4:
+                this.updateSinger();
+                break;
+            case 5:
+                this.findById();
+                break;
+            case 6:
+                this.sortSinger();
+                break;
+            case 7:
+                System.exit(7);
+                break;
+            default:
+                System.out.println("Invalid found");
+
+        }
+    }
 }

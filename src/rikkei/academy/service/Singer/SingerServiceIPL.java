@@ -25,7 +25,6 @@ public class SingerServiceIPL implements ISingerService {
 
     @Override
     public void save(Singer singer) {
-
         listSinger.add(singer);
     }
 
@@ -51,7 +50,7 @@ public class SingerServiceIPL implements ISingerService {
        Collections.sort(listSinger);
        upDateId();
     }
-    public void upDateId(){
+    private void upDateId(){
         for (int i = 0; i < listSinger.size(); i++){
             listSinger.get(i).setId(i+1);
         }

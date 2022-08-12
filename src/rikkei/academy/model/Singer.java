@@ -5,7 +5,7 @@ public class Singer implements Comparable<Singer>{
     private String name;
     private int age;
 
-    public Singer(String name, int age) {
+    public Singer() {
     }
 
     public Singer(int id, String name, int age) {
